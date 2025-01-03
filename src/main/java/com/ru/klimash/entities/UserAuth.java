@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 public class UserAuth {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column
     private int id;
 
@@ -22,13 +22,17 @@ public class UserAuth {
     @Column
     private LocalDateTime authorized_at;
 
+    @Column
+    private String email;
+
     protected UserAuth() {
     }
 
-    public UserAuth(int customer_id, int password_hash, LocalDateTime authorized_at) {
+    public UserAuth(int customer_id, int password_hash, LocalDateTime authorized_at, String email) {
         this.customer_id = customer_id;
         this.password_hash = password_hash;
         this.authorized_at = authorized_at;
+        this.email = email;
     }
 
     public int getId() {
@@ -57,5 +61,13 @@ public class UserAuth {
 
     public void setAuthorized_at(LocalDateTime authorized_at) {
         this.authorized_at = authorized_at;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }
