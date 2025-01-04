@@ -20,7 +20,7 @@ public class Customer {
     @Column
     private String password;
 
-    protected Customer() {
+    public Customer() {
     }
     public Customer(String fio, String email, String password) {
         this.fio = fio;

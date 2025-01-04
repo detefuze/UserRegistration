@@ -4,13 +4,9 @@ import com.ru.klimash.entities.Customer;
 import com.ru.klimash.repositories.CustomersRepository;
 import com.ru.klimash.services.CustomersService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -38,9 +34,14 @@ public class RegistrationController {
 
     @PostMapping("/registration/new_customer")
     public String registration(@RequestParam String fio,
-                               @RequestParam String email,
-                               @RequestParam String password) {
-        customersRepository.save(new Customer(fio, email, password));
+                                               @RequestParam String email,
+                                               @RequestParam String password) {
+
+        Customer customer = new Customer();
+        customer.setFio(fio);
+        customer.setEmail(email);
+        customer.setPassword(password);
+        customersRepository.save(customer);
         return "redirect:/main_menu/registration_api/registration";
     }
 }
