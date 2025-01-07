@@ -15,8 +15,8 @@ import java.util.List;
 public class RegistrationController {
 
 
-    private CustomersRepository customersRepository;
-    private CustomersService customersService;
+    private final CustomersRepository customersRepository;
+    private final CustomersService customersService;
 
     @Autowired
     public RegistrationController(CustomersService customersService,
