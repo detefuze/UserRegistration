@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Успешная регистрация</title>
+    <title>Неудачная регистрация</title>
     <style>
         body {
             display: flex;
@@ -35,9 +35,9 @@
                 count--; // уменьшаем отсчет
                 if (count < 0) {
                     clearInterval(countdownInterval);
-                    counterElement.textContent = "Регистрация успешна!";
+                    counterElement.textContent = "Авторизация неудачна!";
                     setTimeout(() => {
-                        window.location.href = 'http://localhost:8080/main_menu';
+                        window.location.href = 'http://localhost:8081/main_menu/registration_api/registration';
                     }, 1000);
                 }
             }, 1000);

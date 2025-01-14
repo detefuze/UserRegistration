@@ -2,6 +2,8 @@ package com.ru.klimash.entities;
 
 import jakarta.persistence.*;
 
+import java.sql.Timestamp;
+
 @Entity
 @Table(name = "customers")
 public class Customer {
@@ -20,12 +22,23 @@ public class Customer {
     @Column
     private String password;
 
+    @Column
+    private int balance;
+
+    @Column
+    private Timestamp authenticated_at;
+
     public Customer() {
     }
-    public Customer(String fio, String email, String password) {
+
+    public Customer(int id, String fio, String email,
+                    String password, int balance, Timestamp authenticated_at) {
+        this.id = id;
         this.fio = fio;
         this.email = email;
         this.password = password;
+        this.balance = balance;
+        this.authenticated_at = authenticated_at;
     }
 
     public int getId() {
@@ -54,5 +67,21 @@ public class Customer {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public int getBalance() {
+        return balance;
+    }
+
+    public void setBalance(int balance) {
+        this.balance = balance;
+    }
+
+    public Timestamp getAuthenticated_at() {
+        return authenticated_at;
+    }
+
+    public void setAuthenticated_at(Timestamp authenticated_at) {
+        this.authenticated_at = authenticated_at;
     }
 }

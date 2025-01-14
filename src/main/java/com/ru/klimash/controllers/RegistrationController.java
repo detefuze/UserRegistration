@@ -39,7 +39,7 @@ public class RegistrationController {
     public String registration(@RequestParam String fio,
                                @RequestParam String email,
                                @RequestParam String password) {
-
+        
         Customer customer = new Customer();
         customer.setFio(fio);
         customer.setEmail(email);
