@@ -34,6 +34,10 @@ public class RegistrationController {
     public String registrationComplete() {
         return "registration-success";
     }
+    @GetMapping("/registration_regret")
+    public String registrationRegret() {
+        return "registration-regret";
+    }
 
     @PostMapping("/registration/new_customer")
     public String registration(@RequestParam String fio,
@@ -44,8 +48,7 @@ public class RegistrationController {
         customer.setFio(fio);
         customer.setEmail(email);
         customer.setPassword(password);
-        customersRepository.save(customer);
-        return "redirect:http://localhost:8081/main_menu/registration_api" +
-                "/registration_success";
+
+        return customersService.registrateNewCustomer(customer);
     }
 }
