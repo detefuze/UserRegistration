@@ -35,7 +35,7 @@ public class CustomersService {
                     "/registration_regret";
         }
 
-        String uiServiceUrl = "http://localhost:8080/main_menu";
+        String uiServiceUrl = "http://userinterface:8080/main_menu";
         CustomerDTO customerDTO = new CustomerDTO();
         customerDTO.setId(customer.getId());
         customerDTO.setFio(customer.getFio());
